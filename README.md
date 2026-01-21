@@ -1,223 +1,208 @@
-# 🛒 Node.js E-commerce Backend
+🛒 NeoShop – Full Stack E-Commerce Platform
 
-A fully functional **E-commerce Backend API** built using **Node.js**, **Express**, **MongoDB**, and **JWT Authentication**.
-This project includes complete shopping features like authentication, products, cart, and orders — with admin controls.
+NeoShop is a full-stack e-commerce web application built with the MERN stack.
+It supports complete user authentication, product browsing, cart management, order system, and secure online payments using Stripe.
 
-Perfect for portfolio, interviews, and real-world learning.
+This project is structured as a monorepo containing both backend and frontend.
 
----
 
-## 🚀 Features
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### 🔐 Authentication & Authorization
 
-* User Registration & Login
-* JWT-based authentication
-* Role-based access (User / Admin)
-* Protected routes
+🚀 Features
+👤 Authentication & Authorization
 
-### 🛍️ Product Management
+User registration & login (JWT based)
 
-* Admin-only CRUD operations
-* Get single product
-* Get all products with:
+Protected routes
 
-  * Search
-  * Pagination
-  * Price filtering
-  * Category filtering
+Admin role support
 
-### 🛒 Cart Management
+🛍 Products
 
-* Add to cart
-* Update quantity
-* Remove item
-* Clear cart
-* Auto calculation of total price
+Product listing
 
-### 📦 Order Management
+Product details page
 
-* Create order from cart
-* View logged-in user's orders
-* Admin: get all orders
-* Admin: update order status
-* Auto stock deduction
+Category & search support (backend)
 
-### ⚙️ Utility
+MongoDB powered product storage
 
-* Global error handler
-* Clean folder structure
-* Secure route middlewares
+🛒 Cart System
 
----
+Add to cart
 
-## 🧱 Tech Stack
+Remove from cart
 
-| Technology     | Description           |
-| -------------- | --------------------- |
-| **Node.js**    | JavaScript runtime    |
-| **Express.js** | Backend framework     |
-| **MongoDB**    | Database              |
-| **Mongoose**   | ODM layer             |
-| **JWT**        | Auth token            |
-| **bcryptjs**   | Password hashing      |
-| **dotenv**     | Environment variables |
+Increase / decrease quantity
 
----
+Persistent cart (DB based)
 
-## 📁 Folder Structure
+📦 Orders
 
-```
-ecommerce-backend/
-│-- server.js
-│-- package.json
-│-- .env
+Place order from cart
+
+Order history
+
+Order details page
+
+Admin order management support
+
+💳 Payments (Stripe)
+
+Stripe Checkout integration
+
+Secure payment flow
+
+Webhooks to confirm payment
+
+Order is marked paid only after Stripe confirmation
+
+🌐 Frontend
+
+React + Vite
+
+Context API (Auth & Cart)
+
+Protected routes
+
+Fully connected with backend APIs
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+🧱 Tech Stack
+Frontend
+
+React.js
+
+React Router
+
+Context API
+
+Axios
+
+Plain CSS
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB + Mongoose
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Project Structure : 
+NeoCart-ecommerce/
 │
-├── src/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── productController.js
-│   │   ├── cartController.js
-│   │   └── orderController.js
-│   ├── middlewares/
-│   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Product.js
-│   │   ├── Cart.js
-│   │   └── Order.js
-│   └── routes/
-│       ├── authroutes.js
-│       ├── productroutes.js
-│       ├── cartroutes.js
-│       └── orderroutes.js
-```
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── middlewares/
+│   │   └── config/
+│   └── server.js
+│
+└── neoshop-frontend/
+    ├── src/
+    │   ├── components/
+    │   ├── pages/
+    │   ├── context/
+    │   ├── api/
+    │   └── styles/
+    └── vite.config.js
 
----
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## ⚙️ Installation & Setup
+ 
+Environment Variables : 
 
-### 1️⃣ Clone the Repository
+  Backend (backend/.env) : 
+      PORT=5000
+MongoURI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 
-```bash
-git clone https://github.com/your-username/nodejs-ecommerce-backend.git
-cd nodejs-ecommerce-backend
-```
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+FRONTEND_URL=http://localhost:5173
 
-### 2️⃣ Install Dependencies
+Frontend currently uses direct API URLs. Environment variables can be added during deployment.
+(only check the baseURL in the /api/api.js)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-```bash
+
+Run Locally
+1️⃣ Clone repository
+ git clone https://github.com/rishabhXpanwar/NeoCart-ecommerce.git
+cd NeoCart-ecommerce
+2️⃣ Backend setup
+cd backend
 npm install
-```
-
-### 3️⃣ Create a `.env` File
-
-```
-PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/ecommerce_db
-JWT_SECRET=yourSecretKey
-JWT_EXPIRE=30d
-NODE_ENV=development
-```
-
-### 4️⃣ Start the Server
-
-For development:
-
-```bash
-npm run dev
-```
-
-For production:
-
-```bash
 npm start
-```
 
-Server runs at:
+3️⃣ Frontend setup
+cd neoshop-frontend
+npm install
+npm run dev
 
-```
-http://localhost:5000
-```
 
----
+Frontend runs on:
+👉 http://localhost:5173
 
-## 📌 API Routes Overview
 
-### 🔐 Auth Routes
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-| Method | Endpoint             | Description      |
-| ------ | -------------------- | ---------------- |
-| POST   | `/api/auth/register` | Register user    |
-| POST   | `/api/auth/login`    | Login user       |
-| GET    | `/api/auth/profile`  | Get user profile |
 
----
+💳 Stripe Payment Flow
 
-### 🛍️ Product Routes
+-User clicks Checkout
 
-| Method | Endpoint            | Access |
-| ------ | ------------------- | ------ |
-| GET    | `/api/products`     | Public |
-| GET    | `/api/products/:id` | Public |
-| POST   | `/api/products`     | Admin  |
-| PUT    | `/api/products/:id` | Admin  |
-| DELETE | `/api/products/:id` | Admin  |
+-Backend creates Stripe checkout session
 
----
+-User completes payment on Stripe page
 
-### 🛒 Cart Routes (Protected)
+-Stripe sends webhook to backend
 
-| Method | Endpoint                      |
-| ------ | ----------------------------- |
-| GET    | `/api/cart`                   |
-| POST   | `/api/cart/add`               |
-| PUT    | `/api/cart/update`            |
-| DELETE | `/api/cart/remove/:productId` |
-| DELETE | `/api/cart/clear`             |
+-Backend verifies event and:
 
----
+-Marks order as paid
 
-### 📦 Order Routes
+-Clears cart
 
-| Method | Endpoint                 | Access     |
-| ------ | ------------------------ | ---------- |
-| POST   | `/api/orders/create`     | User       |
-| GET    | `/api/orders`            | User       |
-| GET    | `/api/orders/:id`        | User/Admin |
-| PUT    | `/api/orders/:id/status` | Admin      |
-| GET    | `/api/orders/all`        | Admin      |
+-Updates product stock
 
----
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 🧪 Testing
 
-Use **Postman** to test APIs.
+🧠 What I Learned From This Project
 
-Protected routes require:
+-Designing scalable REST APIs
 
-```
-Authorization: Bearer <token>
-```
+-JWT authentication & middleware
 
----
+-MongoDB data modeling
 
-## ⚡ Future Improvements
+-Cart & order architecture
 
-* Add payment gateway (Razorpay / Stripe)
-* Image upload (Cloudinary)
-* Wishlist module
-* Product reviews & ratings
-* Admin dashboard UI
+-Stripe payment integration
 
----
+-Webhooks & real-world payment flow
 
-## 👨‍💻 Author
+-React context & protected routing
 
-**Rishabh Panwar**
-Backend Developer | MERN Stack
+-Full frontend–backend integration
 
-⭐ If you like this project, don't forget to **star the repo**!
+-Monorepo project management
+
+-Stripe API + Webhooks
+
+
+👨‍💻 Author
+
+Rishabh Panwar
+Backend-focused Full Stack Developer
+Tech: Node.js, Express, MongoDB, React, REST APIs, StripeWT Authentication
+
