@@ -1,0 +1,98 @@
+.product-card {
+  background: #ffffff;
+  padding: 0; /* Padding remove kiya taaki image edge-to-edge lag sake */
+  border-radius: 12px;
+  overflow: hidden; /* Taaki image ke corners bhi round dikhein */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #f1f1f1;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-img {
+  height: 240px; /* Thoda bada image area */
+  background: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ya 'cover' based on your product type */
+  transition: transform 0.5s ease;
+  padding: 10px;
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.08); /* Hover par subtle zoom effect */
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ff4757;
+  color: white;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.product-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3436;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Long names ko truncate karne ke liye */
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0;
+}
+
+.add-to-cart-btn {
+  margin: 0 15px 15px; /* Spacing from card edges */
+  padding: 12px;
+  border: none;
+  background: #1a1a1a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.add-to-cart-btn:hover {
+  background: #ff4757; /* Matches the theme line */
+  transform: scale(1.02);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98);
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}

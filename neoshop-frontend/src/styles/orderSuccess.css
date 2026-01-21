@@ -1,0 +1,102 @@
+.success-page {
+  background-color: #f8f9fa;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.success-card {
+  background: white;
+  padding: 60px 40px;
+  max-width: 550px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid #f1f1f1;
+}
+
+/* Success Checkmark Animation Effect */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: #e1f7ec;
+  color: #27ae60;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.success-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  color: #636e72;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.success-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Button Styling */
+.btn {
+  padding: 14px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.btn-primary {
+  background: #1a1a1a;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff4757; /* NeoShop Theme Red */
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #f1f2f6;
+  color: #2d3436;
+}
+
+.btn-secondary:hover {
+  background: #dfe4ea;
+  transform: translateY(-2px);
+}
+
+.order-note {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #b2bec3;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .success-actions {
+    flex-direction: column;
+  }
+  .success-card {
+    padding: 40px 20px;
+  }
+}

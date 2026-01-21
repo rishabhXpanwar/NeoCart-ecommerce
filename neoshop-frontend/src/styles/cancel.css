@@ -1,0 +1,94 @@
+.cancel-page {
+  background-color: #fff5f5; /* Very light red background */
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.cancel-card {
+  background: white;
+  padding: 50px 40px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.cancel-icon {
+  width: 70px;
+  height: 70px;
+  background: #ffe5e5;
+  color: #e74c3c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cancel-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2d3436;
+  margin-bottom: 15px;
+}
+
+.cancel-message {
+  color: #636e72;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.cancel-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  flex: 1;
+}
+
+.btn-retry {
+  background: #1a1a1a;
+  color: white;
+}
+
+.btn-retry:hover {
+  background: #e74c3c; /* Red on hover for cancel context */
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: #f1f2f6;
+  color: #2d3436;
+}
+
+.btn-outline:hover {
+  background: #dfe4ea;
+}
+
+.support-text {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #b2bec3;
+}
+
+@media (max-width: 480px) {
+  .cancel-actions {
+    flex-direction: column;
+  }
+}

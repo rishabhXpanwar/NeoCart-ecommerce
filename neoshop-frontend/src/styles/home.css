@@ -1,0 +1,73 @@
+/* Container styling to center the content */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #2d3436;
+}
+
+/* Header section with title and subtitle */
+.home-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Red underline effect for title */
+.home-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff4757; /* Premium Red/Coral color */
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.home-subtitle {
+  color: #636e72;
+  font-size: 1.1rem;
+}
+
+/* Responsive Grid */
+.product-grid {
+  display: grid;
+  /* Balanced card sizes */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 10px 0;
+}
+
+/* Simple Loading state style */
+.loading-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px;
+  font-size: 1.2rem;
+  color: #b2bec3;
+}
+
+/* Small devices optimization */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 30px 15px;
+  }
+  
+  .home-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+}

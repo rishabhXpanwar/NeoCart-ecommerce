@@ -1,0 +1,133 @@
+.product-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-detail-wrapper {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+/* Image Styling */
+.detail-image-section {
+  flex: 1;
+  background: #fdfdfd;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #f1f1f1;
+}
+
+.main-detail-img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Info Styling */
+.detail-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.detail-price-tag {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff4757;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.detail-description {
+  margin-bottom: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+}
+
+.detail-description h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #2d3436;
+}
+
+.detail-description p {
+  color: #636e72;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Buttons */
+.buy-now-btn {
+  width: 100%;
+  max-width: 300px;
+  padding: 18px 30px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  background: #ff4757;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 71, 87, 0.2);
+}
+
+.shipping-info {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .product-detail-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .detail-image-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .detail-title {
+    font-size: 2rem;
+  }
+}
+
+.loader-container {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

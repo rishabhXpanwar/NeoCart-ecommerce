@@ -1,0 +1,139 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px); /* Modern Glassmorphism effect */
+  border-bottom: 1px solid #f1f1f1;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+  width: 100%;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+/* ===== Logo ===== */
+.logo a {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #ff4757; /* Theme color highlight */
+}
+
+/* ===== Nav Links ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li {
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links a:hover {
+  color: #ff4757;
+}
+
+/* Subtle underline hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff4757;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== Cart Badge ===== */
+.cart-link a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-badge {
+  background: #1a1a1a;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 50px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* ===== Buttons Style ===== */
+.register-btn a {
+  background: #1a1a1a;
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.register-btn a::after { display: none; } /* Underline remove */
+
+.register-btn a:hover {
+  background: #ff4757;
+  transform: translateY(-2px);
+}
+
+.logout-btn {
+  color: #ff4757;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.logout-btn:hover {
+  background: #fff5f5;
+  border-color: #ffe5e5;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 12px 15px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+  }
+  
+  .nav-links li {
+    font-size: 0.85rem;
+  }
+  
+  .register-btn a {
+    padding: 6px 12px;
+  }
+}

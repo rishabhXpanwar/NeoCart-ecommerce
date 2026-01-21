@@ -1,0 +1,148 @@
+.checkout-page {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.checkout-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+}
+
+/* Form Styling */
+.checkout-form-section {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+  border-left: 4px solid #ff4757;
+  padding-left: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #ff4757;
+  background-color: #fffafa;
+}
+
+/* Button */
+.payment-btn {
+  width: 100%;
+  margin-top: 30px;
+  padding: 16px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.payment-btn:hover {
+  background: #ff4757;
+  transform: translateY(-2px);
+}
+
+/* Summary Section */
+.checkout-summary-section {
+  background: #1a1a1a;
+  color: white;
+  padding: 30px;
+  border-radius: 16px;
+  height: fit-content;
+}
+
+.summary-title {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.mini-product-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.mini-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: #ccc;
+}
+
+.mini-item small {
+  color: #888;
+  margin-left: 5px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.secure-text {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+  .checkout-form-section {
+    order: 2;
+  }
+  .checkout-summary-section {
+    order: 1;
+  }
+}

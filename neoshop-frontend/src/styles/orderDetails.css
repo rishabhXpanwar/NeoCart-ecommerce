@@ -1,0 +1,151 @@
+.order-detail-page {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.order-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+  padding: 40px;
+}
+
+.order-detail-header {
+  border-bottom: 2px dashed #eee;
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #636e72;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.back-btn:hover {
+  color: #1a1a1a;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-flex h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.order-id-text {
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* Status Pill */
+.status-pill {
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-pill.paid { background: #e1f7ec; color: #27ae60; }
+.status-pill.pending { background: #fff4e5; color: #f39c12; }
+
+/* Items List */
+.order-items-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.detail-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.item-meta {
+  font-size: 0.9rem;
+  color: #636e72;
+}
+
+.item-qty-total {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.qty-tag {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.subtotal {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Billing Summary */
+.order-summary-footer {
+  margin-top: 30px;
+  background: #fdfdfd;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.bill-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #636e72;
+}
+
+.total-bill {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #eee;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.support-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #95a5a6;
+}
+
+.contact-link {
+  color: #ff4757;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .order-detail-container {
+    padding: 20px;
+  }
+}

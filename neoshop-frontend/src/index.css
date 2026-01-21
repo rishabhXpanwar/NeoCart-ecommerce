@@ -1,0 +1,103 @@
+/* ===== NeoShop Global Theme Variables ===== */
+:root {
+  /* Colors */
+  --bg-color: #f9f9f9;
+  --card-bg: #ffffff;
+  --text-main: #1a1a1a;
+  --text-muted: #636e72;
+  --primary-color: #ff4757; /* Humara naya Red-Coral theme */
+  --dark-color: #1a1a1a;
+  --border-color: #f1f1f1;
+  
+  /* Spacing & Radius */
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --container-width: 1200px;
+  
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Global Resets ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Page transitions smooth hongi */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar Styling (Premium look ke liye) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Global Link Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* Global Button Base (Agar kisi page pe custom button na ho) */
+button {
+  font-family: 'Inter', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Global Input Styling */
+input, textarea, select {
+  font-family: inherit;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1);
+}
+
+/* Chrome/Safari image dragging disable (Professional feel) */
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
