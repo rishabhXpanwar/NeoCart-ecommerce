@@ -45,9 +45,9 @@ exports.createOrder = async (req , res , next) => {
         // }// ab stock webhook me modify hoga
 
         //clear the cart after order is placed
-        cart.items = [];
-        cart.totalPrice=0;
-        await cart.save();
+        // cart.items = [];
+        // cart.totalPrice=0;
+        // await cart.save();
 
         res.status(201).json({
             success : true,

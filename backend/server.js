@@ -54,11 +54,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000 ;
 
-if (require.main === module) {
-  app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is up on Port : ${PORT}`);
-  });
-}
+});
 
-
-module.exports = app;

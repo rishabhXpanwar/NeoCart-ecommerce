@@ -8,16 +8,15 @@ function OrderSuccess() {
   const { setCart } = useCart();
 
   useEffect(() => {
-    syncCart();
+    clearCart();
   }, []);
 
-  const syncCart = async () => {
+  const clearCart = async () => {
     try {
-      const { data } = await api.get("/cart");
-      setCart(data.data.items); // backend already cleared
+      await api.get("/cart"); // optional, just to sync backend
+      setCart([]); // frontend force clear
     } catch (err) {
-      console.log("Cart sync failed", err);
-      setCart([]); // fallback safety
+      setCart([]);
     }
   };
 

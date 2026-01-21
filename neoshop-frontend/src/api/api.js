@@ -6,7 +6,7 @@ import axios from "axios";
 */
 
 const api = axios.create({
-  baseURL: "https://neo-cart-ecommerce.vercel.app/api",
+  baseURL: "http://localhost:5000/api",
 });
 
 /*

@@ -30,16 +30,15 @@ exports.register = async (req ,res ,next) => {
 
     // if user already exists
 
-  
-
-    try{
-          const exists = await User.findOne({email});
+    const exists = await User.findOne({email});
 
     if(exists)
     {
         res.status(400);// 400 = bad request
         return next(new Error('User Already Exists'));
     }
+
+    try{
 
         //user.create ek function jo 
         //1. const user = new User ({name, email, password});
