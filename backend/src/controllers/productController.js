@@ -24,72 +24,64 @@ exports.createProduct = async (req, res , next) => {
 
 //get product
 exports.getProduct = async (req, res, next) => {
-    try{
-        const page = Number(req.query.page) || 1;
-        const limit = Number(req.query.limit) || 12;
-        const skip = (page - 1) * limit;
+  try {
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 12;
+    const skip = (page - 1) * limit;
 
-        const filters = {};
+    const filters = {};
 
-        if(req.query.search)
-        {
-            filters.name = {$regex : req.quer.search , $options : 'i'};
-            // regex ka matlab hai regeular expression (pattern Matching)
-            //search pattern by matching text pattern
-            //optione me i ka matlb hai case sensitive 
-            // man lo search me shoe name hai tho 
-            // i use krne se Shoe, sHoe, shOe, SHOe sab match ho jaynge 
-        }
-
-        if(req.query.category)
-        {
-            filters.category = req.query.category;
-        }
-
-        if(req.query.minPrice || req.query.maxPrice)
-        {
-
-            filters.price = {};
-            if(req.query.minPrice)
-            {
-                filters.price.$gte = Number(req.query.minPrice);
-            }
-            if(req.querry.maxPrice)
-            {
-                filters.price.$lte = Number(req.query.maxprice);
-            }
-        }
-
-        // ab hum Promise.all ka use krenge 
-        // ye kya krte hai ke tasks kp parallel me run krdeta hai
-        // oe ek array return krta hai
-         const [total , products] = Promise.all([
-            // total : jo products humare filter se match kr rhe hai 
-            // product  : vo products jo us page pr dikhane hai
-            Product.countDocuments(filters)  // total no. of matching docs
-                .skip(skip)   // skip kitne krne hai jaise ki 3 page pr hai tho 3-1 * 12 = 24 skip krne hai
-                .limit(limit)  // ek page pr kitne aane chaiye max
-                .sort({createdAt : -1})
-         ]);
-
-         // agr hum 2 no promise alag alag perform krte tho 2x time lagta 
-
-         res.status(201).json({
-            success : true, 
-            data : {
-                products,
-                page,
-                padges : Math.ceil(total / limit),
-                total
-            }
-
-         });
+    if (req.query.search) {
+      filters.name = { $regex: req.query.search, $options: "i" };
+      // regex ka matlab hai regeular expression (pattern Matching) //search pattern by matching text pattern //optione me i ka matlb hai case sensitive 
+      // // man lo search me shoe name hai tho 
+      // // i use krne se Shoe, sHoe, shOe, SHOe sab match ho jaynge
     }
-    catch(err)
-    {
-        next(err);
+
+    if (req.query.category) {
+      filters.category = req.query.category;
     }
+
+    if (req.query.minPrice || req.query.maxPrice) {
+      filters.price = {};
+
+      if (req.query.minPrice) {
+        filters.price.$gte = Number(req.query.minPrice);
+      }
+
+      if (req.query.maxPrice) {
+        filters.price.$lte = Number(req.query.maxPrice);
+      }
+    }
+
+    // ✅ RIGHT WAY
+    // ab hum Promise.all ka use krenge 
+    // // ye kya krte hai ke tasks kp parallel me run krdeta hai 
+    // // oe ek array return krta hai 
+    //  // total : jo products humare filter se match kr rhe hai
+    //  // product : vo products jo us page pr dikhane hai
+    const [total, products] = await Promise.all([
+      Product.countDocuments(filters),// total no. of matching docs
+      Product.find(filters)
+        .skip(skip)// skip kitne krne hai jaise ki 3 page pr hai tho 3-1 * 12 = 24 skip krne hai
+        .limit(limit)// ek page pr kitne aane chaiye max
+        .sort({ createdAt: -1 }),
+    ]);
+// agr hum 2 no promise alag alag perform krte tho 2x time lagta
+    res.status(200).json({
+      success: true,
+      data: {
+        products,
+        page,
+        pages: Math.ceil(total / limit),
+        total,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
 };
+
 
 
 
@@ -97,7 +89,7 @@ exports.getProduct = async (req, res, next) => {
 
 exports.getProductById = async (req,res,next) => {
     try{
-        const p = await product.findById(req.params.id);
+        const p = await Product.findById(req.params.id);
 
         if(!p)
         {

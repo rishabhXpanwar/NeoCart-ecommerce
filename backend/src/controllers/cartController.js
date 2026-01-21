@@ -26,6 +26,8 @@ async function calcTotal(items)
             total += prod.price * it.quantity;
         }
     }
+    return total;
+
 };
 
 
@@ -48,10 +50,13 @@ exports.getCart = async (req , res , next) => {
 
         const total = await calcTotal(cart.items);
         res.json({
-            sucess : true,
-            data : cart,
-            totalPrice : total
-            });
+  success: true,
+  data: {
+    items: cart.items,
+    totalPrice: total
+  }
+});
+
         
     }
     catch(err)
@@ -64,7 +69,7 @@ exports.getCart = async (req , res , next) => {
 
 exports.addToCart = async (req ,res, next) => {
     try{
-        const { productId , quantity} = req.body;
+        const { productId , quantity = 1 } = req.body;
 
         if(!productId || quantity <=0)
         {
@@ -119,7 +124,7 @@ exports.addToCart = async (req ,res, next) => {
         //populate the product details in the cart items before sending response
         //it will help frontend to show product details in the cart
 
-        await cart.populate('items.populate');
+        await cart.populate('items.product');
         // 201 means resource created successfully
         res.status(201).json({
             success : true,
@@ -209,7 +214,7 @@ exports.removeFromCart = async (req,res,next) => {
 
         await cart.save();
 
-        await cart.populate('items.populate');
+        await cart.populate('items.product');
 
         res.status(200).json({
             success : true,
@@ -245,3 +250,4 @@ exports.clearCart = async(req, res , next) => {
         next(err);
     }
 };
+

@@ -1,17 +1,16 @@
 const Order = require('../models/order');
 const Cart = require('../models/cart');
 const Product = require('../models/product');
-const product = require('../models/product');
 
 //create order frrom cart
 // api : POST /api/orders/create
 exports.createOrder = async (req , res , next) => {
     try{
-        const { shippingAddress , paymentMethod } = req.bod;
+        const { shippingAddress , paymentMethod } = req.body;
 
         const cart = await Cart.findOne({user : req.user._id}).populate('items.product');
 
-        if(!cart || cart.length === 0)
+        if(!cart || cart.items.length === 0)
         {
             res.status(400);
             return next(new Error ('Cart is Empty'));
@@ -23,7 +22,7 @@ exports.createOrder = async (req , res , next) => {
             priceAtPurchase : i.product.price
         }));
 
-        const totalAmount = cart.tottalPrice;
+        const totalAmount = cart.totalPrice;
 
         const order = await Order.create({
             user : req.user._id,
@@ -34,24 +33,24 @@ exports.createOrder = async (req , res , next) => {
         });
 
         // decrease product stock for all elements of the cart as they have been ordered
-        for(const it of cart.items)
-        {
-            const prod = await Product.findById(it.product._id);
-            if(prod)
-            {
-                prod.stock =  Math.max(0, prod.stock-it.quantity);
-                await product.save();
-            }
+        // for(const it of cart.items)
+        // {
+        //     const prod = await Product.findById(it.product._id);
+        //     if(prod)
+        //     {
+        //         prod.stock =  Math.max(0, prod.stock-it.quantity);
+        //         await prod.save();
+        //     }
 
-        }
+        // }// ab stock webhook me modify hoga
 
         //clear the cart after order is placed
         cart.items = [];
-        cart.tottalPrice=0;
+        cart.totalPrice=0;
         await cart.save();
 
         res.status(201).json({
-            sucess : true,
+            success : true,
             data : order
         });
     }
@@ -66,7 +65,7 @@ exports.createOrder = async (req , res , next) => {
 //api : GET /api/orders
 exports.getUserOrders = async (req ,res , next) => {
     try{
-        const orders = await Order.findOne({user : req.user._id}).sort({createdAt : -1});
+        const orders = await Order.find({user : req.user._id}).sort({createdAt : -1});
 
         if(!orders)
         {
@@ -74,7 +73,7 @@ exports.getUserOrders = async (req ,res , next) => {
             return next(new Error('No Orders Found'));
         }
 
-        res.status(200).jsin({
+        res.status(200).json({
             success : true,
             data : orders
         });
@@ -123,8 +122,8 @@ exports.getOrderById = async( req ,res , next) => {
 // api : PUT /api/orders/:id/status
 exports.updateOrder = async (req , res , next) => {
     try {
-        const { status } =req.body;
-        const order = await order.findById(req.params.id);
+        const { status } = req.body;
+        const order = await Order.findById(req.params.id);
 
         if(!order)
         {
@@ -137,7 +136,7 @@ exports.updateOrder = async (req , res , next) => {
         await order.save();
 
         res.status(200).json({
-            success : ViewTransitionTypeSet,
+            success :success,
             data : order
         });
     }

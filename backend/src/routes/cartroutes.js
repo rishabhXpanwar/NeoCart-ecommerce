@@ -17,7 +17,7 @@ router.use(protect); // this will add protect middleware to all routes below
 router.post('/add' , addToCart);
 router.get('/', getCart);
 router.put('/update' , updateCart);
-router.delete('/remove/:productId' , removeFromCart);
+router.delete('/:productId' , removeFromCart);
 router.delete('/clear' , clearCart);
 
 module.exports = router;
