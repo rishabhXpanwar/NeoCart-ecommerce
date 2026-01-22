@@ -1,13 +1,14 @@
 🛒 NeoShop – Full Stack E-Commerce Platform
 
-NeoShop is a full-stack e-commerce web application built with the MERN stack.
-It supports complete user authentication, product browsing, cart management, order system, and secure online payments using Stripe.
+🔗 Live Project:
+👉 https://neo-cart-ecommerce.vercel.app/
 
-This project is structured as a monorepo containing both backend and frontend.
+NeoShop is a full-stack e-commerce web application built using the MERN stack.
+It supports complete user authentication, product browsing, cart management, order processing, and secure online payments using Stripe with webhook verification.
 
+This project follows a monorepo structure containing both backend and frontend.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------
 
 🚀 Features
 👤 Authentication & Authorization
@@ -16,7 +17,9 @@ User registration & login (JWT based)
 
 Protected routes
 
-Admin role support
+Role-based access (Admin support)
+
+----------------------------------------------------------------------------------------------------
 
 🛍 Products
 
@@ -28,6 +31,8 @@ Category & search support (backend)
 
 MongoDB powered product storage
 
+----------------------------------------------------------------------------------------------------
+
 🛒 Cart System
 
 Add to cart
@@ -37,6 +42,8 @@ Remove from cart
 Increase / decrease quantity
 
 Persistent cart (DB based)
+
+----------------------------------------------------------------------------------------------------
 
 📦 Orders
 
@@ -48,15 +55,21 @@ Order details page
 
 Admin order management support
 
+----------------------------------------------------------------------------------------------------
+
 💳 Payments (Stripe)
 
 Stripe Checkout integration
 
-Secure payment flow
+Secure hosted payment flow
 
-Webhooks to confirm payment
+Stripe webhooks for payment verification
 
 Order is marked paid only after Stripe confirmation
+
+Automatic cart clearing & stock update
+
+----------------------------------------------------------------------------------------------------
 
 🌐 Frontend
 
@@ -66,10 +79,9 @@ Context API (Auth & Cart)
 
 Protected routes
 
-Fully connected with backend APIs
+Fully connected with backend REST APIs
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------
 
 🧱 Tech Stack
 Frontend
@@ -90,11 +102,15 @@ Node.js
 
 Express.js
 
-MongoDB + Mongoose
+MongoDB
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Mongoose
 
-Project Structure : 
+Stripe API
+
+----------------------------------------------------------------------------------------------------
+
+📁 Project Structure
 NeoCart-ecommerce/
 │
 ├── backend/
@@ -115,29 +131,32 @@ NeoCart-ecommerce/
     │   └── styles/
     └── vite.config.js
 
- ----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
- 
-Environment Variables : 
-
-  Backend (backend/.env) : 
-      PORT=5000
+🔐 Environment Variables
+Backend (backend/.env)
+PORT=5000
 MongoURI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 
 STRIPE_SECRET_KEY=your_stripe_secret_key
 STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
-FRONTEND_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5173
 
-Frontend currently uses direct API URLs. Environment variables can be added during deployment.
-(only check the baseURL in the /api/api.js)
-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Frontend (neoshop-frontend/.env)
 
 
-Run Locally
+VITE_API_URL=your_backend_url/api
+
+
+----------------------------------------------------------------------------------------------------
+
+
+▶️ Run Locally
 1️⃣ Clone repository
- git clone https://github.com/rishabhXpanwar/NeoCart-ecommerce.git
+git clone https://github.com/rishabhXpanwar/NeoCart-ecommerce.git
 cd NeoCart-ecommerce
+
 2️⃣ Backend setup
 cd backend
 npm install
@@ -153,56 +172,55 @@ Frontend runs on:
 👉 http://localhost:5173
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------
 
 💳 Stripe Payment Flow
 
--User clicks Checkout
+User clicks Checkout
 
--Backend creates Stripe checkout session
+Backend creates Stripe Checkout Session
 
--User completes payment on Stripe page
+User completes payment on Stripe page
 
--Stripe sends webhook to backend
+Stripe sends webhook event to backend
 
--Backend verifies event and:
+Backend verifies event and:
 
--Marks order as paid
+Marks order as paid
 
--Clears cart
+Clears cart
 
--Updates product stock
+Updates product stock
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------------------------
 
 🧠 What I Learned From This Project
 
--Designing scalable REST APIs
+Designing scalable REST APIs
 
--JWT authentication & middleware
+JWT authentication & middleware
 
--MongoDB data modeling
+MongoDB data modeling
 
--Cart & order architecture
+Cart & order architecture
 
--Stripe payment integration
+Stripe payment integration
 
--Webhooks & real-world payment flow
+Webhooks & real-world payment flow
 
--React context & protected routing
+React Context & protected routing
 
--Full frontend–backend integration
+Full frontend–backend integration
 
--Monorepo project management
+Monorepo project management
 
--Stripe API + Webhooks
+Production-style deployment (Render, Vercel, Atlas)
 
+----------------------------------------------------------------------------------------------------
 
 👨‍💻 Author
 
 Rishabh Panwar
 Backend-focused Full Stack Developer
-Tech: Node.js, Express, MongoDB, React, REST APIs, StripeWT Authentication
 
+Tech: Node.js, Express, MongoDB, React, REST APIs, Stripe, JWT Authentication
