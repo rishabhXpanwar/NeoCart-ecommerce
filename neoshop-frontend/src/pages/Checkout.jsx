@@ -74,6 +74,14 @@ function Checkout() {
           <button className="payment-btn" onClick={checkoutHandler}>
             Proceed to Secure Payment
           </button>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <p>Please use these card details on the stripe payment page : 
+            card No. : 4242 4242 4242 4242 , Expiry : Any future date , CVC : Any 3 digits
+          </p>
         </div>
 
         {/* Right Side: Order Summary [NEW SECTION] */}
